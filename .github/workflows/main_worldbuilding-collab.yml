@@ -60,4 +60,4 @@ jobs:
         with:
           app-name: 'worldbuilding-collab'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_B34AC3858D9C49C586385F23140A7398 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_E9992774D5DB455FBDA1F15CF9D3F383 }}
