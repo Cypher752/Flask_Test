@@ -24,6 +24,9 @@ class Wb_entry(db.Model):
     edited_last = db.Column(db.DateTime(), default=datetime.utcnow)
 
 
+username = " "
+
+
 @app.route("/")
 def start_page():
     return render_template("index.html")
