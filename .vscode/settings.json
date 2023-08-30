@@ -1,4 +1,5 @@
 {
     "appService.defaultWebAppToDeploy": "undefined/subscriptions/6c0c80a9-dda1-4b8c-b00e-bc65c715a73c/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/worldbuilding-collab",
-    "appService.deploySubpath": "."
+    "appService.deploySubpath": ".",
+    "python.analysis.typeCheckingMode": "basic"
 }
