@@ -27,7 +27,7 @@ class Wb_entry(db.Model):
 username = " "
 
 
-@app.route("/")
+@app.route("/worldbuilding-collab.azurewebsites.net")
 def start_page():
     return render_template("index.html")
 
