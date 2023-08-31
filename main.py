@@ -96,4 +96,4 @@ def start_Character():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()
