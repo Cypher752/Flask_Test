@@ -24,7 +24,7 @@ class Wb_entry(db.Model):
     edited_last = db.Column(db.DateTime(), default=datetime.utcnow)
 
 
-username = " "
+
 
 
 @app.route("/")
