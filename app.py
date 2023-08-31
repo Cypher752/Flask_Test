@@ -6,7 +6,7 @@ from sqlalchemy import update
 import os 
 
 app = Flask(__name__)
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///db.db"
+"""app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///db.db"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db = SQLAlchemy(app)
 
@@ -25,7 +25,7 @@ class Wb_entry(db.Model):
     edited_last = db.Column(db.DateTime(), default=datetime.utcnow)
 
 
-
+"""
 
 
 @app.route("/")
@@ -33,7 +33,7 @@ def start_page():
     return render_template("index.html")
 
 
-@app.route("/chat/<name>", methods=["GET", "POST"])
+"""@app.route("/chat/<name>", methods=["GET", "POST"])
 def start_chat(name):
     if request.method == "POST":
         new_message = Message(
@@ -83,15 +83,15 @@ def start_worldbuilding(name):
     
     return render_template("worldbuild.html", content_1 = content_1, content_2 = content_2, content_3 = content_3)
    
-"""user = Wb_entry.query.filter_by(user="Paul").one()
+""" """user = Wb_entry.query.filter_by(user="Paul").one()
     db.session.delete(user)
-    db.session.commit()"""
+    db.session.commit()""" """
   
   
   
 @app.route("/characterBuilder")
 def start_Character():
-        return render_template("Character.html")
+        return render_template("Character.html")"""
 
 
 
