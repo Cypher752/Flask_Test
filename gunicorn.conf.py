@@ -11,4 +11,4 @@ bind = "0.0.0.0:50505"
 workers = (multiprocessing.cpu_count() * 2) + 1
 threads = workers
 
-timeout = 120
+timeout = 240
