@@ -3,6 +3,7 @@ from sqlalchemy import desc
 from datetime import datetime
 from flask import Flask, render_template, request
 from sqlalchemy import update
+import os 
 
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///db.db"
@@ -96,5 +97,3 @@ def start_Character():
 
 if __name__ == "__main__":
     app.run(debug=True)
-
-# test for github integration 
