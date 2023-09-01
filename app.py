@@ -50,7 +50,7 @@ def hello():
        print('Request for hello page received with no name or blank name -- redirecting')
        return redirect(url_for('login'))
    
-@app.route('/index', methods=['POST'])
+"""@app.route('/index', methods=['POST'])
 def start_page():
     name = request.form.get('name')
     global username 
@@ -60,7 +60,7 @@ def start_page():
     else:
        return redirect(url_for('login'))
     
-"""  
+ 
 @app.route("/chat", methods=["GET", "POST"])
 def start_chat():
     if request.method == "POST":
