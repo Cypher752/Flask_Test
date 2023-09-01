@@ -7,7 +7,7 @@ import os
 app = Flask(__name__)
 
 username =' '
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///db.db"
+"""app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///db.db"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db = SQLAlchemy(app)
 
@@ -25,7 +25,7 @@ class Wb_entry(db.Model):
     content = db.Column(db.String(), nullable=True)
     edited_last = db.Column(db.DateTime(), default=datetime.utcnow)
 
-
+"""
 
 
 
@@ -55,13 +55,12 @@ def start_page():
     name = request.form.get('name')
     global username 
     username = name 
-    print(username)
     if name:
         return render_template('index.html', name = username)
     else:
        return redirect(url_for('login'))
     
-    
+"""  
 @app.route("/chat", methods=["GET", "POST"])
 def start_chat():
     if request.method == "POST":
@@ -111,18 +110,18 @@ def start_worldbuilding():
     content_3 = Wb_entry.query.filter_by(entry_number = 3, user = username)
     
     return render_template("worldbuild.html", content_1 = content_1, content_2 = content_2, content_3 = content_3)
-   
+   """
 """user = Wb_entry.query.filter_by(user="Paul").one()
     db.session.delete(user)
     db.session.commit()""" 
   
   
-  
+"""
 @app.route("/characterBuilder")
 def start_Character():
         return render_template("Character.html", name = username)
 
-
+"""
 if __name__ == '__main__':
     app.run()
 
