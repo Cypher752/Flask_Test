@@ -31,7 +31,7 @@ class Wb_entry(db.Model):
 @app.route('/')
 def index():
    print('Request for index page received')
-   return render_template('index.html')
+   return render_template('login.html')
 
 @app.route('/favicon.ico')
 def favicon():
