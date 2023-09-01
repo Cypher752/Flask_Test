@@ -1,6 +1,7 @@
-from flask_sqlalchemy import SQLAlchemy
+"""from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import desc, update
-from datetime import datetime
+from datetime import datetime"""
+
 from flask import Flask, render_template, request, send_from_directory, url_for, redirect
 import os 
 
@@ -47,6 +48,8 @@ def hello():
    else:
        print('Request for hello page received with no name or blank name -- redirecting')
        return redirect(url_for('index'))
+   
+   
 """@app.route('/index', methods=['POST'])
 def start_page():
     name = request.form.get('name')
@@ -119,6 +122,7 @@ def start_Character():
         return render_template("Character.html", name = username)
 
 """
+
 if __name__ == '__main__':
     app.run()
 
