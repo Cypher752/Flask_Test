@@ -84,7 +84,7 @@ def start_worldbuilding(name):
     
     return render_template("worldbuild.html", content_1 = content_1, content_2 = content_2, content_3 = content_3)
    
- """user = Wb_entry.query.filter_by(user="Paul").one()
+"""user = Wb_entry.query.filter_by(user="Paul").one()
     db.session.delete(user)
     db.session.commit()""" 
   
