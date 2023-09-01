@@ -29,8 +29,7 @@ class Wb_entry(db.Model):
 
 @app.route("/")
 def start_page():
-    return render_template("kermit.html")
-    #return render_template("index.html")
+    return render_template("index.html")
 
 
 """@app.route("/chat/<name>", methods=["GET", "POST"])
