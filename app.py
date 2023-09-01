@@ -8,7 +8,7 @@ import os
 app = Flask(__name__)
 
 username =' '
-"""app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///db.db"
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///db.db"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db = SQLAlchemy(app)
 
@@ -27,7 +27,7 @@ class Wb_entry(db.Model):
     edited_last = db.Column(db.DateTime(), default=datetime.utcnow)
 
 
-"""
+
 
 
 @app.route('/')
@@ -52,7 +52,7 @@ def start_page():
        return redirect(url_for('login'))
     
     
-"""@app.route("/chat", methods=["GET", "POST"])
+@app.route("/chat", methods=["GET", "POST"])
 def start_chat(name):
     if request.method == "POST":
         new_message = Message(
@@ -62,12 +62,12 @@ def start_chat(name):
         db.session.add(new_message)
         db.session.commit()
     messages = Message.query.order_by(Message.created_at.desc()).all()
-    return render_template("chat.html", messages=messages, name=name)
+    return render_template("chat.html", messages=messages, username=name)
 
 
 
 
-@app.route("/Worldbuilding/<name>", methods=("GET", "POST"))
+@app.route("/Worldbuilding", methods=("GET", "POST"))
 def start_worldbuilding(name):
     for i in range (1,4):
         if db.session.query(db.exists().where(Wb_entry.entry_number == i and Wb_entry.user == name)).scalar() == False:
@@ -102,16 +102,15 @@ def start_worldbuilding(name):
     
     return render_template("worldbuild.html", content_1 = content_1, content_2 = content_2, content_3 = content_3)
    
-""" """user = Wb_entry.query.filter_by(user="Paul").one()
+"""user = Wb_entry.query.filter_by(user="Paul").one()
     db.session.delete(user)
-    db.session.commit()""" """
+    db.session.commit()""" 
   
   
   
 @app.route("/characterBuilder")
 def start_Character():
-        return render_template("Character.html")"""
-
+        return render_template("Character.html")
 
 
 if __name__ == '__main__':
