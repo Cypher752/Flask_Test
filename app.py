@@ -29,10 +29,13 @@ class Wb_entry(db.Model):
 
 
 @app.route('/')
+def login():
+    return render_template('login.html')
+
+@app.route('/nav')
 def start_page():
-    return render_template('index.html')
-
-
+        return render_template('index.html')
+    
 """@app.route("/chat/", methods=["GET", "POST"])
 def start_chat(name):
     if request.method == "POST":
