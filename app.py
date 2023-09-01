@@ -45,7 +45,6 @@ def start_page():
     name = request.form.get('name')
     global username 
     username = name 
-    print(username)
     if name:
         return render_template('index.html', name = username)
     else:
