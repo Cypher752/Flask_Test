@@ -27,8 +27,6 @@ class Wb_entry(db.Model):
 
 """
 
-
-
 @app.route('/')
 def login():
     return render_template('login.html')
