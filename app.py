@@ -6,6 +6,8 @@ from flask import Flask, render_template, request, send_from_directory, url_for,
 import os 
 
 app = Flask(__name__)
+
+username =' '
 """app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///db.db"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db = SQLAlchemy(app)
@@ -28,33 +30,29 @@ class Wb_entry(db.Model):
 """
 
 
+@app.route('/')
+def login():
+    return render_template('login.html')
+
+
 @app.route('/favicon.ico')
 def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static'),
                                'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
-@app.route('/hello', methods=['POST'])
-def hello():
-   name = request.form.get('name')
-
-   if name:
-       print('Request for hello page received with name=%s' % name)
-       return render_template('hello.html', name = name)
-   else:
-       print('Request for hello page received with no name or blank name -- redirecting')
+   
+@app.route('/index', methods=['POST'])
+def start_page():
+    name = request.form.get('name')
+    global username 
+    username = name 
+    if name:
+        return render_template('index.html', name = name)
+    else:
        return redirect(url_for('login'))
     
-@app.route('/<name>')
-
-@app.route('/')
-def login():
-    return render_template('login.html')
-
-@app.route('/nav')
-def start_page():
-        return render_template('index.html')
     
-"""@app.route("/chat/", methods=["GET", "POST"])
+"""@app.route("/chat", methods=["GET", "POST"])
 def start_chat(name):
     if request.method == "POST":
         new_message = Message(
