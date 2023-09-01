@@ -33,7 +33,7 @@ def start_page():
     return render_template('index.html')
 
 
-"""@app.route("/chat/<name>", methods=["GET", "POST"])
+"""@app.route("/chat/", methods=["GET", "POST"])
 def start_chat(name):
     if request.method == "POST":
         new_message = Message(
