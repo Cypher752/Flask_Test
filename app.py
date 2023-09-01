@@ -1,4 +1,3 @@
-
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import desc, update
 from datetime import datetime
@@ -46,33 +45,34 @@ def start_page():
     name = request.form.get('name')
     global username 
     username = name 
+    print(username)
     if name:
-        return render_template('index.html', name = name)
+        return render_template('index.html', name = username)
     else:
        return redirect(url_for('login'))
     
     
 @app.route("/chat", methods=["GET", "POST"])
-def start_chat(name):
+def start_chat():
     if request.method == "POST":
         new_message = Message(
-            user = name,
+            user = username,
             content = request.form["content"]
             ) 
         db.session.add(new_message)
         db.session.commit()
     messages = Message.query.order_by(Message.created_at.desc()).all()
-    return render_template("chat.html", messages=messages, username=name)
+    return render_template("chat.html", messages=messages, name=username)
 
 
 
 
 @app.route("/Worldbuilding", methods=("GET", "POST"))
-def start_worldbuilding(name):
+def start_worldbuilding():
     for i in range (1,4):
-        if db.session.query(db.exists().where(Wb_entry.entry_number == i and Wb_entry.user == name)).scalar() == False:
+        if db.session.query(db.exists().where(Wb_entry.entry_number == i and Wb_entry.user == username)).scalar() == False:
             new_entry = Wb_entry(
-                user = name,
+                user = username,
                 content = "Beispiel",
                 entry_number = i
                 ) 
@@ -81,24 +81,24 @@ def start_worldbuilding(name):
             
     if request.method == "POST":    
         for i in range (1,4):
-            if db.session.query(db.exists().where(Wb_entry.entry_number == i and Wb_entry.user == name)).scalar() == True:
-                user = Wb_entry.query.filter_by(user = name, entry_number = i).one()
+            if db.session.query(db.exists().where(Wb_entry.entry_number == i and Wb_entry.user == username)).scalar() == True:
+                user = Wb_entry.query.filter_by(user = username, entry_number = i).one()
                 db.session.delete(user)
                 db.session.commit()
                 
             Textfield = "text_" + str(i)
             
             new_entry = Wb_entry(
-            user = name,
+            user = username,
             content = request.form[Textfield],
             entry_number = i
             ) 
             db.session.add(new_entry)
             db.session.commit()
             
-    content_1 = Wb_entry.query.filter_by(entry_number = 1, user = name)
-    content_2 = Wb_entry.query.filter_by(entry_number = 2, user = name)
-    content_3 = Wb_entry.query.filter_by(entry_number = 3, user = name)
+    content_1 = Wb_entry.query.filter_by(entry_number = 1, user = username)
+    content_2 = Wb_entry.query.filter_by(entry_number = 2, user = username)
+    content_3 = Wb_entry.query.filter_by(entry_number = 3, user = username)
     
     return render_template("worldbuild.html", content_1 = content_1, content_2 = content_2, content_3 = content_3)
    
@@ -110,7 +110,7 @@ def start_worldbuilding(name):
   
 @app.route("/characterBuilder")
 def start_Character():
-        return render_template("Character.html")
+        return render_template("Character.html", name = username)
 
 
 if __name__ == '__main__':
