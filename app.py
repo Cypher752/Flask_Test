@@ -7,7 +7,7 @@ import os
 
 app = Flask(__name__)
 
-"""username =' '
+username =' ' """
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///db.db"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db = SQLAlchemy(app)
@@ -48,10 +48,10 @@ def hello():
        return render_template('hello.html', name = name)
    else:
        print('Request for hello page received with no name or blank name -- redirecting')
-       return redirect(url_for('index'))
+       return redirect(url_for('login'))
    
    
-"""@app.route('/index', methods=['POST'])
+@app.route('/index', methods=['POST'])
 def start_page():
     name = request.form.get('name')
     global username 
@@ -61,7 +61,7 @@ def start_page():
     else:
        return redirect(url_for('login'))
     
- 
+"""
 @app.route("/chat", methods=["GET", "POST"])
 def start_chat():
     if request.method == "POST":
