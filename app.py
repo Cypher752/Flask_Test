@@ -1,8 +1,7 @@
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import desc 
+from sqlalchemy import desc, update
 from datetime import datetime
 from flask import Flask, render_template, request, send_from_directory, url_for, redirect
-from sqlalchemy import update
 import os 
 
 app = Flask(__name__)
