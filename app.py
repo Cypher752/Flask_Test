@@ -7,7 +7,8 @@ import os
 
 app = Flask(__name__)
 
-username =' ' """
+username =' ' 
+"""
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///db.db"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db = SQLAlchemy(app)
