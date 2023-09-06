@@ -7,6 +7,8 @@ import os
 
 app = Flask(__name__)
 
+cnx = psycopg2.connect(user="eidwvjivnb", password="{R4IBA6760624O8L7$}", host="notetaking-dnd-server.postgres.database.azure.com", port=5432, database="db")
+
 username =' ' 
 """
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///db.db"
